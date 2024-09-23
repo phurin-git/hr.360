@@ -5,6 +5,7 @@
 :root {
     --primary-color: white;
     --secondary-color: #D9D9D9;
+    --tertiary-color: #534FEB;
     --text-positive-color: #069855;
     --text-negative-color: #D62525;
     --text-hightlight-color: #534feb;
@@ -15,4 +16,36 @@
 
 th, td {
     @apply px-4 py-[22px];
+}
+
+th:first-child, td:first-child {
+    @apply w-[145px];
+}
+
+th:nth-child(2), td:nth-child(2) {
+    @apply w-[230px];
+}
+
+th:nth-child(3), td:nth-child(3) {
+    @apply w-[135px];
+}
+
+th:nth-child(3), td:nth-child(3) {
+    @apply w-[203px];
+}
+
+th:nth-child(4), td:nth-child(4) {
+    @apply w-[185px];
+}
+
+th:nth-child(5), td:nth-child(5) {
+    @apply w-[88px];
+}
+
+th:nth-child(6), td:nth-child(6) {
+    @apply w-[120px];
+}
+
+th:nth-child(6), td:nth-child(6) {
+    @apply w-[122px];
 }

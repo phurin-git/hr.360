@@ -11,6 +11,7 @@ import scheduleIcon from '@/app/images/side-nav/calendar-01.svg';
 import reportsIcon from '@/app/images/side-nav/file-01.svg';
 import helpIcon from '@/app/images/side-nav/information-circle.svg';
 import logoutIcon from '@/app/images/side-nav/logout-03.svg';
+import { logout } from "@/app/lib/authAction";
 
 const preahvihear = Preahvihear(
   {
@@ -31,12 +32,11 @@ const navItems = [
   { icon: scheduleIcon, label: 'Schedule', isActive: false },
   { icon: reportsIcon, label: 'Reports and Analytics', isActive: false },
   { icon: helpIcon, label: 'Help', isActive: false },
-  { icon: logoutIcon, label: 'Logout', isActive: false },
 ];
 
 const getNavLink = ({ icon, label, isActive=false }:{ icon?: StaticImageData, label: string, isActive?: boolean }) => {
   return (
-    <div className={`rounded-[3px] flex gap-3 items-center p-4 ${isActive ? 'bg-[#534FEB] text-white' : ''}`}>
+    <div className={`rounded-[3px] flex gap-3 items-center p-4 ${isActive ? 'bg-tertiary text-white' : ''}`}>
       <div className="size-5">
         {icon && <Image src={icon} alt={label}/>}
       </div>
@@ -47,7 +47,7 @@ const getNavLink = ({ icon, label, isActive=false }:{ icon?: StaticImageData, la
 
 const Page = () => {
   return (
-    <section className="sticky top-0 w-[248px] h-full min-h-screen flex flex-col bg-[#F5F5F5]">
+    <section className="sticky top-0 w-[248px] h-full min-h-screen flex flex-col bg-table">
       <div className="flex gap-3 items-center p-6 -mb-4">
         <Image src={logo} width={40} height={40} alt="logo" />
         <span className={`${preahvihear.className} text-xl`}>HR.360</span>
@@ -56,7 +56,15 @@ const Page = () => {
         <ul className="flex flex-col gap-2 justify-center">
           {navItems.map((item, index) => 
           <li key={index}>{getNavLink(item)}</li>
-          )}  
+          )}
+          <li key={navItems.length}>
+            <form action={logout}>
+              <button type="submit" className='w-full rounded-[3px] flex gap-3 items-center p-4 hover:bg-tertiary hover:text-white transition-colors'>
+                <Image src={logoutIcon} alt='logout' className="size-5"/>
+                <p className="text-sm truncate">Logout</p>
+              </button>
+            </form>
+          </li>
         </ul>
       </nav>
     </section>

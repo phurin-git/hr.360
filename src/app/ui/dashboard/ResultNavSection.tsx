@@ -4,7 +4,7 @@ import arrowRightIcon from '@/app/images/menu-item/square-arrow-right-double-rou
 
 const ResultNavSection = () => {
   return (
-    <div className='flex gap-[553px] justify-between items-center'>
+    <div className='flex gap-[553px] justify-between items-center mb-[62px]'>
         <div className='flex gap-3 text-base leading-6'>
           <span>Showing</span>
           <span className='font-normal'>{1} to {5} of {5}</span>

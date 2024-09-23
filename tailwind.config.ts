@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         primary: 'var(--primary-color)',
         secondary: 'var(--secondary-color)',
+        tertiary: 'var(--tertiary-color)',
         positive: 'var(--text-positive-color)',
         negative: 'var(--text-negative-color)',
         highlight: 'var(--text-hightlight-color)',
