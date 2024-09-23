@@ -1,4 +1,4 @@
-const HeadSection = () => {
+const Component = () => {
   return (
   <div className='flex gap-6 justify-between items-center mt-6 mb-10'>
     <div className='flex flex-col gap-2'>
@@ -23,4 +23,4 @@ const HeadSection = () => {
   );
 };
 
-export default HeadSection;
+export default Component;

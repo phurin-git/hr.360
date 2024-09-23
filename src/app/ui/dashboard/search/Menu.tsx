@@ -7,7 +7,7 @@ import arrowDownIcon from '@/app/images/menu-item/arrow-down-01-round.svg';
 import calendarIcon from '@/app/images/menu-item/calendar-01.svg';
 import exportCsvIcon from '@/app/images/menu-item/cloud-upload.svg';
 
-const MenuSection = (
+const Component = (
   {
     filterTerm,
     setFilterTerm
@@ -51,4 +51,4 @@ const MenuSection = (
   );
 };
 
-export default MenuSection;
+export default Component;

@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { signInSchema } from '../lib/zod';
-import { login } from '../lib/authAction';
-import logo from '../images/logo.svg';
+import { signInSchema } from '@/app/lib/zod';
+import { login } from '@/app/lib/authActions';
+import logo from '@/app/images/logo.svg';
 
 const SignInPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof signInSchema>>({

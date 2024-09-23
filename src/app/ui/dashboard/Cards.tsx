@@ -1,14 +1,12 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import { Card } from '@/app/lib/type';
 import totalWorkforceIcon from '@/app/images/card/briefcase-06.svg';
 import presentWorkforceIcon from '@/app/images/card/office-chair.svg';
 import absentWorkforceIcon from '@/app/images/card/alert-diamond.svg';
 import lateArrivalsIcon from '@/app/images/card/alarm-clock.svg';
 import onLeaveIcon from '@/app/images/card/beach.svg';
 
-type colorOption = 'positive' | 'negative';
-type CardData = { icon: StaticImageData, title: string, value: number, color: colorOption };
-
-const cardData: CardData[] = [
+const cardData: Card[] = [
   { icon: totalWorkforceIcon, title: 'Total Workforce', value: 150, color: 'positive' },
   { icon: presentWorkforceIcon, title: 'Present Workforce', value: 125, color: 'positive' },
   { icon: absentWorkforceIcon, title: 'Absent Workforce', value: 15, color: 'negative' },
@@ -16,7 +14,7 @@ const cardData: CardData[] = [
   { icon: onLeaveIcon, title: 'On leave', value: 5, color: 'positive' },
 ];
 
-const getCard = ({ icon, title, value, color }: CardData) => {
+const getCard = ({ icon, title, value, color }: Card) => {
   return (
     <div className='rounded-xl flex flex-col gap-4 p-6 border border-black/20'>
           <div className='flex gap-1 justify-between items-center'>
@@ -33,7 +31,7 @@ const getCard = ({ icon, title, value, color }: CardData) => {
   );
 };
 
-const CardSection = () => {
+const Component = () => {
   return (
     <div className='flex flex-wrap gap-6 mt-6 mb-10'>
       {cardData.map((data, index) => {
@@ -47,4 +45,4 @@ const CardSection = () => {
   );
 };
 
-export default CardSection;
+export default Component;

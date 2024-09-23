@@ -1,35 +1,15 @@
-'use client';
-import { useState, useEffect } from 'react';
-import lodash from 'lodash'; // delaying the search execution after the user has stopped typing (just try best practice)
-import HeadSection from '@/app/ui/dashboard/HeadSection';
-import CardSection from '@/app/ui/dashboard/CardSection';
-import MenuSection from '@/app/ui/dashboard/MenuSection';
-import ResultTableSection from '@/app/ui/dashboard/ResultTableSection';
-import ResultNavSection from '@/app/ui/dashboard/ResultNavSection';
-import { employeeData } from '@/app/lib/employeeData';
+import Heading from '@/app/ui/dashboard/Heading';
+import Cards from '@/app/ui/dashboard/Cards';
+import Search from '@/app/ui/dashboard/Search';
+import getAttendanceData from '@/app/lib/getAttendanceData';
 
-const Page = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState(employeeData);
-
-  const searchHandler = lodash.debounce((term: string) => {
-    const results = employeeData.filter((data) => {
-      return Object.values(data).join(' ').toLowerCase().includes(term.toLowerCase());
-    });
-    setSearchResults(results);
-  }, 300);
-
-  useEffect(() => {
-    searchHandler(searchTerm);
-  }, [searchTerm, searchHandler]);
-
+const Page = async () => {
+  const attendanceData = await getAttendanceData();
   return (
     <section className='mx-6'>
-      <HeadSection />
-      <CardSection />
-      <MenuSection filterTerm={searchTerm} setFilterTerm={setSearchTerm} />
-      <ResultTableSection filteredResult={searchResults}/>
-      <ResultNavSection />
+      <Heading />
+      <Cards />
+      <Search attendanceData={attendanceData} />
     </section>
   );
 };

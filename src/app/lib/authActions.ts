@@ -1,5 +1,4 @@
 'use server';
-
 import { signIn, signOut } from '@/app/auth';
 import { AuthError } from 'next-auth';
 

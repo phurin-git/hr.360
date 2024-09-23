@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { EmployeeData } from '@/app/lib/employeeData';
+import { Attendance } from '@/app/lib/type';
 
-const ResultTableSection = ({ filteredResult }:{ filteredResult: EmployeeData[] }) => {
+const Component = ({ filteredResult }:{ filteredResult: Attendance[] }) => {
   return (
     <div className='h-[488px]'>
       <table className='w-full my-6'>
@@ -21,23 +21,23 @@ const ResultTableSection = ({ filteredResult }:{ filteredResult: EmployeeData[] 
           {filteredResult.map((data, index) => {
             return (
               <tr key={index} >
-                <td>{data.Date}</td>
+                <td>{data.date}</td>
                 <td>
                   <div className='flex gap-3 items-center'>
                     <Image src={data.avatar} alt="avatar" />
-                    <span>{data.Employee}</span>
+                    <span>{data.name}</span>
                   </div>
                 </td>
-                <td>{data.Role}</td>
+                <td>{data.role}</td>
                 <td>
-                  <div>{data['Employment Type']}</div>
+                  <div>{data.type}</div>
                 </td>
                 <td>
-                  <div>{data.Status}</div>
+                  <div>{data.status}</div>
                 </td>
-                <td>{data['Check In']}</td>
-                <td>{data['Check Out']}</td>
-                <td>{data['Over Time']}</td>
+                <td>{data.timeIn}</td>
+                <td>{data.timeOut}</td>
+                <td>{data.ot}</td>
               </tr>
             )
           })}
@@ -47,4 +47,4 @@ const ResultTableSection = ({ filteredResult }:{ filteredResult: EmployeeData[] 
   );
 };
 
-export default ResultTableSection;
+export default Component;

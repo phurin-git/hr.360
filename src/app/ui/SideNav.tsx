@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Preahvihear } from'next/font/google';
 import logo from '@/app/images/logo.svg';
 import dashboardIcon from '@/app/images/side-nav/dashboard-square-01.svg';
@@ -11,7 +11,8 @@ import scheduleIcon from '@/app/images/side-nav/calendar-01.svg';
 import reportsIcon from '@/app/images/side-nav/file-01.svg';
 import helpIcon from '@/app/images/side-nav/information-circle.svg';
 import logoutIcon from '@/app/images/side-nav/logout-03.svg';
-import { logout } from "@/app/lib/authAction";
+import { logout } from "@/app/lib/authActions";
+import { NavItem } from "@/app/lib/type";
 
 const preahvihear = Preahvihear(
   {
@@ -22,7 +23,7 @@ const preahvihear = Preahvihear(
   }
 );
 
-const navItems = [
+const navItems: NavItem[] = [
   { icon: dashboardIcon, label: 'Dashboard', isActive: false },
   { icon: employeeIcon, label: 'Employee', isActive: true },
   { icon: recruitmentIcon, label: 'Recruitment', isActive: false },
@@ -34,7 +35,7 @@ const navItems = [
   { icon: helpIcon, label: 'Help', isActive: false },
 ];
 
-const getNavLink = ({ icon, label, isActive=false }:{ icon?: StaticImageData, label: string, isActive?: boolean }) => {
+const getNavLink = ({ icon, label, isActive=false }: NavItem) => {
   return (
     <div className={`rounded-[3px] flex gap-3 items-center p-4 ${isActive ? 'bg-tertiary text-white' : ''}`}>
       <div className="size-5">

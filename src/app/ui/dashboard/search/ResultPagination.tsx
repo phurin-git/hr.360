@@ -2,7 +2,7 @@ import Image from 'next/image';
 import arrowLeftIcon from '@/app/images/menu-item/square-arrow-left-double-round.svg';
 import arrowRightIcon from '@/app/images/menu-item/square-arrow-right-double-round.svg';
 
-const ResultNavSection = () => {
+const Component = () => {
   return (
     <div className='flex gap-[553px] justify-between items-center mb-[62px]'>
         <div className='flex gap-3 text-base leading-6'>
@@ -22,4 +22,4 @@ const ResultNavSection = () => {
   );
 };
 
-export default ResultNavSection;
+export default Component;
