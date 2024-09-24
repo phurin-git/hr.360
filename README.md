@@ -1,4 +1,4 @@
-# HR.360 — Simple Dashboard
+# HR.360 — HR Management Dashboard
 
 HR.360 is a web-based HR management dashboard, I practice frontend skill by used designed in Figma and builted it. The application allows users to log in, browse a user directory, search, filter, and view detailed information about each user. This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
@@ -108,17 +108,17 @@ Flexible containers with CSS flexbox are used to ensure the layout adapts smooth
 ### Mobile Version:
 *The mobile layout optimizes the interface for smaller screens.*
 
-![image responsive mobile](/responsive-mobile.jpeg)
+![image responsive mobile](/docs/img/responsive-mobile.jpeg)
 
 ### Tablet Version:
 *Adjusts for medium-sized screens, balancing between mobile and desktop layouts for a comfortable viewing experience.*
 
-![image responsive tablet](/responsive-tablet.jpeg)
+![image responsive tablet](/docs/img/responsive-tablet.jpeg)
 
 ### Desktop Version:
 *The desktop layout provides a full-width view optimized for larger screens.*
 
-![image responsive desktop](/responsive-desktop.jpg)
+![image responsive desktop](/docs/img/responsive-desktop.jpg)
 
 ## Future Improvements
 While the current version of the application meets the requirements, there are several areas for potential enhancement:
@@ -128,3 +128,8 @@ While the current version of the application meets the requirements, there are s
 - **User Role Management**: Adding roles and permissions for different types of users (e.g., admin, regular user).
 - **Performance Optimization**: Implementing lazy loading and code splitting to improve performance on slower networks.
 - **Accessibility**: Enhancing the app's accessibility to meet WCAG standards, ensuring it's usable for all users.
+
+## Credits
+Design: [HR.360 — HR Management Dashboard](https://www.figma.com/community/file/1330845180697578574) by [@BambamUi](https://www.figma.com/@BambamUi)
+Development: Built with [Next.js](https://nextjs.org/) and styled using [Tailwind CSS](https://tailwindcss.com/)
+Mock Data: Generated with [faker-js](https://fakerjs.dev/)
