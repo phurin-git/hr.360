@@ -2,11 +2,12 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import useSWR from 'swr';
+import { AttendanceApiResponse } from '@/app/lib/type';
 import SearchAndFilter from '@/app/ui/dashboard/search/SearchAndFilter';
 import Table from '@/app/ui/dashboard/search/Table';
 import Pagination from '@/app/ui/dashboard/search/Pagination';
 
-const fetcher = (...args: [RequestInfo, RequestInit?]): Promise<any> => fetch(...args).then(res => res.json());
+const fetcher = (...args: [RequestInfo, RequestInit?]): Promise<AttendanceApiResponse> => fetch(...args).then(res => res.json());
 
 const Component = () => {
   const router = useRouter();
@@ -33,7 +34,7 @@ const Component = () => {
 
   useEffect(() => {
     router.push(`/dashboard${searchQuery}`);
-  }, [searchQuery]);
+  }, [router, searchQuery]);
 
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
@@ -41,8 +42,16 @@ const Component = () => {
   return (
     <>
       <SearchAndFilter searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <Table data={data['data']} />
-      <Pagination page={data['page']} setPage={setPage} total={data['total']} totalPage={data['total_pages']} perPage={data['per_page']} />
+      {data && <Table data={data['data']} />}
+      {data && (
+        <Pagination
+          page={data['page']}
+          setPage={setPage}
+          total={data['total']}
+          totalPage={data['total_pages']}
+          perPage={data['per_page']}
+        />
+      )}
     </>
   );
 };

@@ -13,6 +13,18 @@ export interface Attendance {
   avatar: StaticImageData;
 }
 
+export interface AttendanceApiResponse {
+  total: number;
+  present: number;
+  absent: number;
+  late: number;
+  leave: number;
+  page: number;
+  per_page: number;
+  total_pages: number;
+  data: Attendance[];
+}
+
 type colorOption = 'positive' | 'negative';
 
 export interface Card {
