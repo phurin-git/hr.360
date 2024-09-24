@@ -2,7 +2,6 @@ import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { ZodError } from "zod"
 import { signInSchema } from "./lib/zod";
-import userDB from './data/userData';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -14,7 +13,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         try {
           const { email, password } = await signInSchema.parseAsync(credentials);
-          const user = userDB.find((user) => user.email === email && user.password === password);
+          const user = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/user`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email, password: password }),
+          }).then((res) => res.json());
 
           if (user) {
             return user;
