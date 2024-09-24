@@ -21,19 +21,19 @@ const Component = (
   }
 
   return (
-    <div className='flex gap-6 justify-between'>
-      <div className='flex gap-4'>
+    <div className='flex flex-wrap gap-6 justify-between'>
+      <div className='flex flex-wrap gap-4'>
         <div className='relative w-[377px]'>
           <input type="search" name="search" value={searchTerm} onChange={handleFilter} placeholder='Search by name, role, department...' className='rounded-xl w-full  flex gap-3 items-center pl-[52px] pr-[52px] py-4 text-base truncate border border-black/20'/>
           <Image src={searchIcon} alt="search" className='absolute top-5 left-6' />
           <Image src={commandIcon} alt="command" className='absolute top-5 right-6' />
         </div>
-        <div className='opacity-0 rounded-xl flex gap-3 px-6 py-4 border border-black/20'>
+        <div className='rounded-xl flex gap-3 px-6 py-4 border border-black/20'>
           <p className='text-base leading-6'>Filter</p>
           <Image src={filterIcon} alt="filter" />
         </div>
       </div>
-      <div className='opacity-0 flex gap-4'>
+      <div className='flex flex-wrap gap-4'>
         <div className='rounded-xl flex gap-3 items-center px-6 py-4 border border-black/20'>
           <p className='text-base leading-6'>All Departments</p>
           <Image src={arrowDownIcon} alt="arrow" />

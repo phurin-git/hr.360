@@ -18,15 +18,15 @@ const Component = (
   }
 ) => {
   return (
-    <div className='flex gap-[553px] justify-between items-center my-[62px]'>
+    <div className='flex justify-between items-center mb-[62px]'>
         <div className='flex gap-3 text-base leading-6'>
           <span>Showing</span>
           <span className='font-normal'>
-            {((page - 1) * perPage) + 1}
-            {' to '}
-            {page * perPage > total ? total : page * perPage}
-            {' of '}
-            {total}
+            {`${((page - 1) * perPage) + 1}
+            to
+            ${page * perPage > total ? total : page * perPage}
+            of
+            ${total}`}
           </span>
           <span>employees</span>
         </div>

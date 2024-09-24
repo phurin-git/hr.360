@@ -11,7 +11,7 @@ const getDateAndTime = (): string[] => {
 
 const Component = () => {
   return (
-  <div className='flex gap-6 justify-between items-center mt-6 mb-10'>
+  <div className='flex flex-wrap gap-6 justify-between items-center mt-6 mb-10'>
     <div className='flex flex-col gap-2'>
       <p className='text-2xl font-normal'>Employee Attendance</p>
       <div className='flex gap-2'>
@@ -26,11 +26,11 @@ const Component = () => {
         <span className='text-sm text-highlight'>Attendance</span>
       </div>
     </div>
-      <div className='flex gap-3'>
-        <div className='text-base'>{getDateAndTime()[0]}</div>
-        <div className='text-base uppercase'>{getDateAndTime()[1]}</div>
-      </div>
+    <div className='flex gap-3'>
+      <div className='text-base'>{getDateAndTime()[0]}</div>
+      <div className='text-base uppercase'>{getDateAndTime()[1]}</div>
     </div>
+  </div>
   );
 };
 

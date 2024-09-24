@@ -48,7 +48,7 @@ const getNavLink = ({ icon, label, isActive=false }: NavItem) => {
 
 const Page = () => {
   return (
-    <section className="sticky top-0 w-[248px] h-full min-h-screen flex flex-col bg-table">
+    <section className="sticky top-0 w-[248px] flex flex-col bg-table max-sm:hidden">
       <div className="flex gap-3 items-center p-6 -mb-4">
         <Image src={logo} width={40} height={40} alt="logo" />
         <span className={`${preahvihear.className} text-xl`}>HR.360</span>

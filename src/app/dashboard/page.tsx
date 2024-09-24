@@ -4,7 +4,7 @@ import Data from '@/app/ui/dashboard/Data';
 
 const Page = () => {
   return (
-    <section className='mx-6'>
+    <section className='flex flex-col px-6'>
       <Heading />
       <Cards />
       <Data />
