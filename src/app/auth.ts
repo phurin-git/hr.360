@@ -16,18 +16,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         try {
-          let user = null;
           const { email, password } = await signInSchema.parseAsync(credentials);
-          user = userDB.find((u) => u.email === email && u.password === password);
+          const user = userDB.find((u) => u.email === email && u.password === password);
 
           if (user) {
             return user;
           } else {
-            throw process.env.NODE_ENV === "development" ? new Error("Invalid email or password.") : null;
+            throw new Error("Invalid email or password.");
           }
         } catch (error) {
           if (error instanceof ZodError) {
-            throw process.env.NODE_ENV === "development" ? new Error("Invalid email or password.") : null;
+            throw new Error("Invalid email or password.");
           }
           throw error;
         }

@@ -10,7 +10,7 @@ export const login = async (email: string, password: string): Promise<string | n
     if (error instanceof AuthError) {
       return 'Invalid email or password.';
     }
-    throw process.env.NODE_ENV === "development" ? error : null;
+    throw error;
   }
 };
 
