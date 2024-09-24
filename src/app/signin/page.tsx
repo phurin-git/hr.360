@@ -26,8 +26,8 @@ const SignInPage = () => {
   }
 
   return (
-    <div className='w-screen h-screen flex gap-[368px] justify-center items-center'>
-      <div className='w-[360px] flex flex-col gap-8'>
+    <div className='w-screen h-screen flex gap-[368px] justify-center items-center px-3'>
+      <div className='max-w-[360px] flex flex-col gap-8'>
         <div className='w-full flex flex-col gap-6 items-center'>
           <Image src={logo} alt='logo' width={48} height={48}/>
           <div className='w-full flex flex-col gap-3'>

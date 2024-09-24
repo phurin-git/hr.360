@@ -11,7 +11,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
   <div className="flex">
     <SideNav />
-    <div className="w-full min-w-max flex flex-col">
+    <div className="flex flex-col">
       <TopNav />
       {children}
     </div>
