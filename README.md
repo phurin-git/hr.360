@@ -118,7 +118,7 @@ Flexible containers with CSS flexbox are used to ensure the layout adapts smooth
 ### Desktop Version:
 *The desktop layout provides a full-width view optimized for larger screens.*
 
-![image responsive desktop](/docs/img/responsive-desktop.jpg)
+![image responsive desktop](/docs/img/responsive-desktop.jpeg)
 
 ## Future Improvements
 While the current version of the application meets the requirements, there are several areas for potential enhancement:
