@@ -130,6 +130,6 @@ While the current version of the application meets the requirements, there are s
 - **Accessibility**: Enhancing the app's accessibility to meet WCAG standards, ensuring it's usable for all users.
 
 ## Credits
-Design: [HR.360 — HR Management Dashboard](https://www.figma.com/community/file/1330845180697578574) by [@BambamUi](https://www.figma.com/@BambamUi)
-Development: Built with [Next.js](https://nextjs.org/) and styled using [Tailwind CSS](https://tailwindcss.com/)
+Design: [HR.360 — HR Management Dashboard](https://www.figma.com/community/file/1330845180697578574) by [@BambamUi](https://www.figma.com/@BambamUi)\
+Development: Built with [Next.js](https://nextjs.org/) and styled using [Tailwind CSS](https://tailwindcss.com/)\
 Mock Data: Generated with [faker-js](https://fakerjs.dev/)
