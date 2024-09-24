@@ -15,5 +15,6 @@ export async function POST(req: NextRequest) {
 
   // Return safe user data (excluding password)
   const { password: _, ...safeUserData } = user;
+  _.toLowerCase(); // This is to avoid TS error for unused variable
   return NextResponse.json(safeUserData);
 };

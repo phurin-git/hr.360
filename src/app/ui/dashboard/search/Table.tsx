@@ -3,7 +3,7 @@ import { Attendance } from '@/app/lib/type';
 
 const Component = ({ data }:{ data: Attendance[] }) => {
   return (
-    <div className='relative h-[750px] hide-scrollbar my-6 overflow-x-scroll'>
+    <div className='relative h-[675px] hide-scrollbar my-6 overflow-x-scroll'>
       <table className='absolute '>
         <thead className='text-left bg-table'>
           <tr>

@@ -18,7 +18,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email: email, password: password }),
           }).then((res) => res.json());
-          console.log(user);
 
           if (user) {
             return user;

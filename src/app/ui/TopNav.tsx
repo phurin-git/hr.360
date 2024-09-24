@@ -26,7 +26,7 @@ const Page = async () => {
             <Image src={arrowDownIcon} alt="arrow" />
         </div>
       </div>
-      <form action={logout}>
+      <form action={logout} className="sm:hidden">
         <button type="submit" className='w-full bg-table rounded-[3px] flex gap-3 items-center p-4 hover:bg-tertiary hover:text-white transition-colors'>
           <Image src={logoutIcon} alt='logout' className="size-5"/>
           <p className="text-sm truncate">Logout</p>

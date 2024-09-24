@@ -18,7 +18,7 @@ const Component = (
   }
 ) => {
   return (
-    <div className='flex justify-between items-center my-[62px]'>
+    <div className='flex justify-between items-center mb-[62px]'>
         <div className='flex gap-3 text-base leading-6'>
           <span>Showing</span>
           <span className='font-normal'>
