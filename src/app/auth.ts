@@ -1,11 +1,9 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { ZodError } from "zod"
-import { signInSchema } from "./lib/zod"
+import { signInSchema } from "./lib/zod";
 
-const userDB = [
-  { id: "1", name: "Super User", email: "superuser@account.com", password: "superuser" },
-]
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -17,16 +15,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         try {
           const { email, password } = await signInSchema.parseAsync(credentials);
-          const user = userDB.find((u) => u.email === email && u.password === password);
+          const user = await fetch(`${API_URL}/api/auth/user`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email, password: password }),
+          }).then((res) => res.json());
 
           if (user) {
             return user;
           } else {
-            throw new Error("Invalid email or password.");
+            throw process.env.NODE_ENV === "development" ? new Error("Invalid email or password.") : null;
           }
         } catch (error) {
           if (error instanceof ZodError) {
-            throw new Error("Invalid email or password.");
+            throw process.env.NODE_ENV === "development" ? new Error("Invalid email or password.") : null;
           }
           throw error;
         }
