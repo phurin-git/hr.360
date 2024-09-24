@@ -1,3 +1,5 @@
+'use client';
+import useSWR from 'swr';
 import Image from 'next/image';
 import { Card } from '@/app/lib/type';
 import totalWorkforceIcon from '@/app/images/card/briefcase-06.svg';
@@ -6,13 +8,7 @@ import absentWorkforceIcon from '@/app/images/card/alert-diamond.svg';
 import lateArrivalsIcon from '@/app/images/card/alarm-clock.svg';
 import onLeaveIcon from '@/app/images/card/beach.svg';
 
-const cardData: Card[] = [
-  { icon: totalWorkforceIcon, title: 'Total Workforce', value: 150, color: 'positive' },
-  { icon: presentWorkforceIcon, title: 'Present Workforce', value: 125, color: 'positive' },
-  { icon: absentWorkforceIcon, title: 'Absent Workforce', value: 15, color: 'negative' },
-  { icon: lateArrivalsIcon, title: 'Late arrivals', value: 5, color: 'positive' },
-  { icon: onLeaveIcon, title: 'On leave', value: 5, color: 'positive' },
-];
+const fetcher = (...args: [RequestInfo, RequestInit?]): Promise<any> => fetch(...args).then(res => res.json());
 
 const getCard = ({ icon, title, value, color }: Card) => {
   return (
@@ -32,6 +28,19 @@ const getCard = ({ icon, title, value, color }: Card) => {
 };
 
 const Component = () => {
+  const { data, error, isLoading } = useSWR('/api/attendances', fetcher);
+
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading...</div>;
+
+  const cardData: Card[] = [
+    { icon: totalWorkforceIcon, title: 'Total Workforce', value: data['total'], color: 'positive' },
+    { icon: presentWorkforceIcon, title: 'Present Workforce', value: data['present'], color: 'positive' },
+    { icon: absentWorkforceIcon, title: 'Absent Workforce', value: data['absent'], color: 'negative' },
+    { icon: lateArrivalsIcon, title: 'Late arrivals', value: data['late'], color: 'positive' },
+    { icon: onLeaveIcon, title: 'On leave', value: data['leave'], color: 'positive' },
+  ];
+
   return (
     <div className='flex flex-wrap gap-6 mt-6 mb-10'>
       {cardData.map((data, index) => {

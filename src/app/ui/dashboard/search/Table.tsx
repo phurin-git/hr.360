@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { Attendance } from '@/app/lib/type';
 
-const Component = ({ filteredResult }:{ filteredResult: Attendance[] }) => {
+const Component = ({ data }:{ data: Attendance[] }) => {
   return (
-    <div className='h-[488px]'>
-      <table className='w-full my-6'>
+    <div className='h-[488px] my-6'>
+      <table className='w-full'>
         <thead className='text-left bg-table'>
           <tr>
             <th className='rounded-l-xl'>Date</th>
@@ -18,26 +18,26 @@ const Component = ({ filteredResult }:{ filteredResult: Attendance[] }) => {
           </tr>
         </thead>
         <tbody>
-          {filteredResult.map((data, index) => {
+          {data && data.map((d, index) => {
             return (
               <tr key={index} >
-                <td>{data.date}</td>
+                <td>{d.date}</td>
                 <td>
                   <div className='flex gap-3 items-center'>
-                    <Image src={data.avatar} alt="avatar" />
-                    <span>{data.name}</span>
+                    <Image src={d.avatar} alt="avatar" />
+                    <span>{d.name}</span>
                   </div>
                 </td>
-                <td>{data.role}</td>
+                <td>{d.role}</td>
                 <td>
-                  <div>{data.type}</div>
+                  <div>{d.type}</div>
                 </td>
                 <td>
-                  <div>{data.status}</div>
+                  <div>{d.status}</div>
                 </td>
-                <td>{data.timeIn}</td>
-                <td>{data.timeOut}</td>
-                <td>{data.ot}</td>
+                <td>{d.timeIn}</td>
+                <td>{d.timeOut}</td>
+                <td>{d.ot}</td>
               </tr>
             )
           })}

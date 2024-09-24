@@ -1,15 +1,13 @@
 import Heading from '@/app/ui/dashboard/Heading';
 import Cards from '@/app/ui/dashboard/Cards';
-import Search from '@/app/ui/dashboard/Search';
-import getAttendanceData from '@/app/lib/getAttendanceData';
+import Data from '@/app/ui/dashboard/Data';
 
-const Page = async () => {
-  const attendanceData = await getAttendanceData();
+const Page = () => {
   return (
     <section className='mx-6'>
       <Heading />
       <Cards />
-      <Search attendanceData={attendanceData} />
+      <Data />
     </section>
   );
 };
