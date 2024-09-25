@@ -7,7 +7,7 @@ HR.360 is a web-based HR management dashboard, I practice frontend skill by used
 1. Clone the repository
 
 ```bash
-https://github.com/phurin-git/hr.360.git
+git clone https://github.com/phurin-git/hr.360.git
 ```
 2. Install dependencies
 ```bash
@@ -19,7 +19,7 @@ npm run build
 ```
 4. Start the project
 ```bash
-npm run Start
+npm run start
 ```
 5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
